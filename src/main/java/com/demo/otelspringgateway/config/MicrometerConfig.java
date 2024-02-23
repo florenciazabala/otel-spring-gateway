@@ -2,15 +2,13 @@ package com.demo.otelspringgateway.config;
 
 import io.micrometer.observation.Observation;
 import io.micrometer.observation.ObservationPredicate;
-import io.micrometer.observation.ObservationRegistry;
 import io.micrometer.observation.ObservationView;
-import io.micrometer.observation.aop.ObservedAspect;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.server.reactive.observation.ServerRequestObservationContext;
 
 @Configuration
-public class MicrometerConfig2 {
+public class MicrometerConfig {
 
     /*@Bean
     public ObservedAspect observedAspect(ObservationRegistry observationRegistry) {
@@ -33,7 +31,7 @@ public class MicrometerConfig2 {
         return (name, context) -> {
             Observation.Context root = getRoot(context);
             if (root instanceof ServerRequestObservationContext serverContext) {
-                return !serverContext.getCarrier().getPath().value().startsWith("/actuator");
+                return !serverContext.getCarrier().getPath().value().startsWith("/health");
             } else {
                 return true;
             }

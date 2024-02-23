@@ -11,9 +11,9 @@ class RoutesConfiguration {
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route(p -> p
-                        .path("/get")
+                        .path("/v1/seed/posts")
                         .filters(f -> f.addRequestHeader("Hello", "World"))
-                        .uri("http://httpbin.org:80"))
+                        .uri("http://localhost:8080"))
                 .build();
     }
 }
